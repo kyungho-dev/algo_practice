@@ -14,8 +14,10 @@ const init = () => {
   // same([1,2,3,2], [9,1,4,4]);
 
   // 애너그램 연습
-  console.log(validAnagram('cat', 'rat'));
+  // console.log(validAnagram('cat', 'rat'));
 
+  // 합이 0이 되는 배열 찾기
+  console.log(sumZero([-3, -2, -1, 0, 1, 2, 3])); // [-3, 3]
 }
 
 const bigONotation = () => {
@@ -178,6 +180,23 @@ function validAnagram(first, second) {
     }
   }
   return true;
+}
+
+// 배열에서 합이 0이 되는 조합을 찾아 반환
+function sumZero(arr) {
+  let left = 0;
+  let right = arr.length - 1;
+  while(left < right) {
+    let sum = arr[left] + arr[right];
+
+    if (sum === 0) {
+      return [arr[left], arr[right]];
+    } else if (sum > 0) {
+      right--;
+    } else {
+      left++;
+    }
+  }
 }
 
 init();
