@@ -139,7 +139,7 @@ function same(arr1, arr2) {
 }
 
 // 애너그램 예제, 내가 푼 방식
-function validAnagram(str1, str2) {
+function validAnagramByKyungho(str1, str2) {
 
   let obj1 = {};
   let obj2 = {};
@@ -152,6 +152,32 @@ function validAnagram(str1, str2) {
 
   return JSON.stringify(obj1) === JSON.stringify(obj2)
 
+}
+
+// 강사 코드
+function validAnagram(first, second) {
+  if (first.length !== second.length) {
+    return false;
+  }
+
+  const lookup = {};
+
+  for (let i = 0 ; i < first.length ; i++) {
+    let letter = first[i];
+
+    lookup[letter] ? lookup[letter] += 1 : lookup[letter] = 1;
+  }
+
+  for (let i = 0 ; i < second.length ; i++) {
+    let letter = second[i];
+
+    if (!lookup[letter]) {
+      return false;
+    } else {
+      lookup[letter] -= 1;
+    }
+  }
+  return true;
 }
 
 init();
