@@ -8,7 +8,10 @@ const init = () => {
   // bigONotation();
 
   // 문자열 갯수
-  console.log(charCount("hello"));
+  // console.log(charCount("hello"));
+
+  // 빈도수 세기
+  same([1,2,3,2], [9,1,4,4]);
 
 }
 
@@ -80,6 +83,55 @@ function isAlphaNumeric(char) {
     !(code > 47 && code < 58)) { // lower alpha (a-z)
     return false;
   }
+  return true;
+}
+
+// 빈도수 세기 패턴 Chap.27
+function oldSame(arr1, arr2) {
+  if (arr1.length !== arr2.length) {
+    return false;
+  }
+  for (let i = 0 ; i < arr1.length ; i++) {
+    let correctIndex = arr2.indexOf(arr1[i] ** 2);
+    // indexOf도 배열을 순환하기 때문에
+    // 이 접근 방법은 O(n^2) 방법이다.
+    // 가능한 중첩된 반복문은 사용하지 않는게 좋다.
+    // 개별의 반복문 두개가 중복된 반복분보다 좋다!!
+    if (correctIndex === -1) {
+      return false;
+    }
+    console.log(arr2);
+    arr2.splice(correctIndex, 1);
+  }
+  return true;
+}
+
+// 위에 선언한 same을 개선해보자 (중복된 반복문 없애기)
+function same(arr1, arr2) {
+  if (arr1.length !== arr2.length) {
+    return false;
+  }
+
+  let frequencyCounter1 = {}
+  let frequencyCounter2 = {}
+
+  for (let val of arr1) {
+    frequencyCounter1[val] = (frequencyCounter1[val] || 0) + 1
+  }
+  for (let val of arr2) {
+    frequencyCounter2[val] = (frequencyCounter2[val] || 0) + 1
+  }
+
+  for (let key in frequencyCounter1) {
+    if (!(key ** 2 in frequencyCounter2)) {
+      return false;
+    }
+    if (frequencyCounter2[key ** 2] !== frequencyCounter1[key]) {
+      return false;
+    }
+  }
+  console.log(frequencyCounter1);
+  console.log(frequencyCounter2);
   return true;
 }
 
