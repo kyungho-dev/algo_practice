@@ -11,7 +11,10 @@ const init = () => {
   // console.log(charCount("hello"));
 
   // 빈도수 세기
-  same([1,2,3,2], [9,1,4,4]);
+  // same([1,2,3,2], [9,1,4,4]);
+
+  // 애너그램 연습
+  console.log(validAnagram('cat', 'rat'));
 
 }
 
@@ -133,6 +136,22 @@ function same(arr1, arr2) {
   console.log(frequencyCounter1);
   console.log(frequencyCounter2);
   return true;
+}
+
+// 애너그램 예제, 내가 푼 방식
+function validAnagram(str1, str2) {
+
+  let obj1 = {};
+  let obj2 = {};
+  for (let char of str1) {
+    obj1[char] = (obj1[char] || 0) + 1;
+  }
+  for (let char of str2) {
+    obj2[char] = (obj2[char] || 0) + 1;
+  }
+
+  return JSON.stringify(obj1) === JSON.stringify(obj2)
+
 }
 
 init();
