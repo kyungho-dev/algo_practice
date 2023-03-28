@@ -237,6 +237,63 @@ function countUniqueValuesTest(arr){
   return Object.keys(obj).length;
 }
 
+// 강사 코드
+function countUniqueValues(arr) {
+  if (arr.length === 0) return 0;
+  let i = 0;
+  for (let j = 1; j < arr.length ; j++) {
+    if (arr[i] !== arr[j]) {
+      i++;
+      arr[i] = arr[j];
+    }
+  }
+  return i + 1;
+}
+// [1, 1, 2, 3, 3, 4, 4, 5, 6, 6, 7] 이런 input이 들어오면 위 코드를 통해
+// [1, 2, 3, 4, 5, 6, 7, 5, 6, 6, 7] 이 되고, i는 6이 돼서 return 은 i +1 = 7 이 된다.
+
+
+// 기준점 간 이동 배열 패턴 (Chap.33)
+// input: [1, 2, 5, 2, 3, 4, 8, 2], 3
+// 배열중 3개 연속된 숫자의 합이 가장 큰 애들 return
+function maxSubarraySumNotGood(arr, num) {
+  if (num > arr.length) {
+    return null;
+  }
+  let max = -Infinity;
+  for (let i = 0 ; i < arr.length - num + 1 ; i++) {
+    let temp = 0;
+    for (let j = 0 ; j < num ; j++) {
+      temp += arr[i + j];
+    }
+    if (temp > max) {
+      max = temp;
+    }
+  }
+  return max;
+}
+// 위 방식은 효율이 좋지 않다.
+// 아래 방식은 O(N)의 복잡도를 갖는다.
+function maxSubarraySum(arr, num) {
+  let maxSum = 0;
+  let tempSum = 0;
+
+  if (arr.length < num) return null;
+  for (let i = 0 ; i < num ; i++) {
+    maxSum += arr[i];
+  }
+
+  tempSum = maxSum;
+
+  for(let i = num ; i < arr.length; i++) {
+    // 3개를 더한다고 했을때 (인덱스 기준) 0, 1, 2의 합에서 0번을 뺴고 3번을 더하는것
+    // "이걸 슬라이딩 윈도우" 라고 하는지는 모르겠지만
+    // 수업중에는 그렇게 지칭함!
+    tempSum = tempSum - arr[i - num] + arr[i];
+    maxSum = Math.max(maxSum, tempSum);
+  }
+  return maxSum;
+}
 
 
 init();
