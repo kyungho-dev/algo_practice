@@ -199,4 +199,28 @@ function sumZero(arr) {
   }
 }
 
+// 애너그램 과제
+function validAnagramTest(str, str2){
+  // add whatever parameters you deem necessary - good luck!
+  const first = {};
+  const second = {};
+
+  if (str.length !== str2.length) return false;
+  if (str === str2) return true;
+
+  for (let char of str) {
+    //   first[char] = first[char] ? first[char]++ : 1;
+    if (first[char]) first[char]++;
+    else first[char] = 1;
+  }
+  for (let char of str2) {
+    if (first[char] > 0) first[char]--;
+    else return false;
+    //   second[char] = second[char] ? second[char]++ : 1;
+  }
+  return true;
+}
+
+
+
 init();
