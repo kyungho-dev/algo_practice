@@ -221,6 +221,22 @@ function validAnagramTest(str, str2){
   return true;
 }
 
+// unique value 찾기 과제
+function countUniqueValuesTest(arr){
+  // add whatever parameters you deem necessary - good luck!
+  const obj = {};
+  let answer = 0;
+  if (arr.length === 0) return 0;
+  else {
+    for(let i = 0 ; i < arr.length ; i++) {
+      let temp = arr[i];
+      if(obj[temp]) obj[temp]++;
+      else obj[temp] = 1;
+    }
+  }
+  return Object.keys(obj).length;
+}
+
 
 
 init();
