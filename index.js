@@ -319,6 +319,47 @@ function sameFrequencyTest(num1, num2){
   return true;
 }
 
+// same frequency 강사코드
+function sameFrequency(num1, num2){
+  let strNum1 = num1.toString();
+  let strNum2 = num2.toString();
+  if(strNum1.length !== strNum2.length) return false;
+
+  let countNum1 = {};
+  let countNum2 = {};
+
+  for(let i = 0; i < strNum1.length; i++){
+    countNum1[strNum1[i]] = (countNum1[strNum1[i]] || 0) + 1
+  }
+
+  for(let j = 0; j < strNum1.length; j++){
+    countNum2[strNum2[j]] = (countNum2[strNum2[j]] || 0) + 1
+  }
+
+  for(let key in countNum1){
+    if(countNum1[key] !== countNum2[key]) return false;
+  }
+
+  return true;
+}
+
+// 중복된 데이터 있는 경우 강사 코드
+function areThereDuplicates(...args) {
+  // Two pointers
+  args.sort((a,b) => a > b);
+  let start = 0;
+  let next = 1;
+  while(next < args.length){
+    if(args[start] === args[next]){
+      return true
+    }
+    start++
+    next++
+  }
+  return false
+}
+
+
 // frequency Counter2 예제
 // Multiple Pointers
 function areThereDuplicatesTest(...items) {
@@ -330,6 +371,27 @@ function areThereDuplicatesTest(...items) {
   }
   return false;
 }
+
+// 배열 내 두수의 평균이 두번째 인자와 같은지 찾는 함수 예제
+function averagePair(arr, avg){
+  // add whatever parameters you deem necessary - good luck!
+
+  if (arr.length < 1) return false;
+
+  let left = 0;
+  let right = arr.length - 1;
+  const sum = avg * 2;
+
+  while (left < right) {
+    if (arr[left] + arr[right] === sum) return true;
+    else if (arr[left] + arr[right] > sum) right--;
+    else if (arr[left] + arr[right] < sum) left++;
+  }
+  return false;
+
+}
+
+
 
 
 
