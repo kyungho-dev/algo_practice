@@ -295,7 +295,7 @@ function maxSubarraySum(arr, num) {
   return maxSum;
 }
 
-// frequenct counter 예제
+// frequency counter 예제
 function sameFrequencyTest(num1, num2){
   // good luck. Add any arguments you deem necessary.
   const str = String(num1);
@@ -317,6 +317,18 @@ function sameFrequencyTest(num1, num2){
     else return false;
   }
   return true;
+}
+
+// frequency Counter2 예제
+// Multiple Pointers
+function areThereDuplicatesTest(...items) {
+  // good luck. (supply any arguments you deem necessary.)
+  const first = {};
+  for (let item of items) {
+    if (first[item]) return true;
+    else first[item] = 1;
+  }
+  return false;
 }
 
 
