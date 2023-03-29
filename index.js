@@ -295,5 +295,30 @@ function maxSubarraySum(arr, num) {
   return maxSum;
 }
 
+// frequenct counter 예제
+function sameFrequencyTest(num1, num2){
+  // good luck. Add any arguments you deem necessary.
+  const str = String(num1);
+  const str2 = String(num2);
+
+  if (str.length !== str2.length) return false;
+
+  const first = {};
+  const second = {};
+
+  for (let char of str) {
+    if (first[char]) first[char]++;
+    else first[char] = 1;
+  }
+
+
+  for (let char of str2) {
+    if (first[char] > 0) first[char]--;
+    else return false;
+  }
+  return true;
+}
+
+
 
 init();
