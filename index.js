@@ -406,7 +406,27 @@ function isSubsequenceTest(str, str2) {
 
 }
 
+// sliding window 예제
+function maxSubarraySumTest(arr, num){
+  // add whatever parameters you deem necessary - good luck!
+  if (num > arr.length) return null;
+  else {
 
+    let maxSum = 0;
+    let sum = 0;
+    for (let i = 0 ; i < num ; i++) {
+      sum = maxSum += arr[i];
+    }
+
+    for (let i = num ; i < arr.length ; i++) {
+      sum = sum - arr[i - num] + arr[i];
+      console.log("MAXSUM : " , maxSum)
+      console.log("sum : " , sum)
+      if (sum > maxSum) maxSum = sum;
+    }
+    return maxSum;
+  }
+}
 
 
 
