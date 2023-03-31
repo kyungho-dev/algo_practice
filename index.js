@@ -391,6 +391,21 @@ function averagePair(arr, avg){
 
 }
 
+// string으로 된 두개의 파라미터를 받고, 첫번째 파라미터의 글자들이 두번째 파라미터에 순서대로 나오는 경우 true
+function isSubsequenceTest(str, str2) {
+  // good luck. Add any arguments you deem necessary.
+  for (let i = 0 ; i < str2.length ; i++) {
+    let a = 0;
+    if (str[a] === str2[i]) {
+      str = str.substr(a + 1);
+      a++;
+    }
+  }
+  if (str.length === 0) return true;
+  else return false;
+
+}
+
 
 
 
