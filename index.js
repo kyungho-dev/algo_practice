@@ -477,5 +477,37 @@ function findLongestSubstringSol(str) {
   return longest;
 }
 
+// Chap.42 재귀 나애 wakeUp() 은 콜스택 설명 예시
+function takeShower() {
+  return "Showering";
+}
+
+function eatBrakfast() {
+  let meal = cookFood();
+  return `Eating ${meal}`;
+}
+
+function cookFood() {
+  let items = ["Oatmeal", "Eggs", "Protein Shake"];
+  return items[Math.floor(Math.random()*items.length)];
+}
+
+function wakeUp() {
+  takeShower();
+  eatBrakfast();
+  console.log("OK ready to go to work!");
+}
+
+// 재귀 예시
+function countDown(num) {
+  if (num <= 0) {
+    console.log("All done!");
+    return;
+  }
+  console.log(num);
+  num--;
+  countDown(num);
+}
+
 
 init();
