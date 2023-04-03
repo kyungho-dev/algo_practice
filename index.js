@@ -517,14 +517,16 @@ function sumRange(num) {
 
 // 재귀 예시3
 function factorial(num) {
-  let total = 1;
-  for(let i = num ; i > 0; i--) {
-    total *= i;
-  }
-  return total;
+  // for loop로 구현한 팩토리얼
+  // let total = 1;
+  // for(let i = num ; i > 0; i--) {
+  //   total *= i;
+  // }
+  // return total;
 
-  // if (num === 1) return 1;
-  // return num * factorial(num - 1);
+  // 재귀로 구현한 팩토리얼
+  if (num === 1) return 1;
+  return num * factorial(num - 1);
 }
 
 
