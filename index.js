@@ -509,5 +509,11 @@ function countDown(num) {
   countDown(num);
 }
 
+// 재귀 예시2
+function sumRange(num) {
+  if (num === 1) return 1;
+  return num + sumRange(num - 1);
+}
+
 
 init();
