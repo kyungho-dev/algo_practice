@@ -515,5 +515,17 @@ function sumRange(num) {
   return num + sumRange(num - 1);
 }
 
+// 재귀 예시3
+function factorial(num) {
+  let total = 1;
+  for(let i = num ; i > 0; i--) {
+    total *= i;
+  }
+  return total;
+
+  // if (num === 1) return 1;
+  // return num * factorial(num - 1);
+}
+
 
 init();
