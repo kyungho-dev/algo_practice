@@ -565,5 +565,25 @@ function collectOddValues(arr) {
   return newArr;
 }
 
+// 재귀를 이용하여 제곱을 구하는 방법
+// power(2,0) // 1
+// power(2,2) // 4
+// power(2,4) // 16
+function power(num1, num2) {
+
+  let answer = 1;
+
+  function pow(num) {
+    if (num === 0) return 1;
+    return num1;
+  }
+
+  for(let i = num2 ; i >= 0 ; i--) {
+    answer *= pow(i);
+  }
+  return answer;
+
+}
+
 
 init();
