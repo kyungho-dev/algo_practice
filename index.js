@@ -582,8 +582,26 @@ function power(num1, num2) {
     answer *= pow(i);
   }
   return answer;
-
 }
+
+// helper 함수를 이용하여 팩토리얼을 구현하기
+//factorial(1) // 1
+// factorial(2) // 2
+// factorial(4) // 24
+// factorial(7) // 5040
+function factorial(num) {
+  let answer = 1;
+  function facto($num) {
+    if ($num === 1) return 1;
+    return $num;
+  }
+  for (let i = num ; i > 0 ; i--) {
+    answer *= facto(i);
+  }
+  return answer;
+}
+
+
 
 
 init();
