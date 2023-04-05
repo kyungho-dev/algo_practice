@@ -549,7 +549,7 @@ function collectionOdds(nums) {
   return result;
 }
 
-// helper함수를 이용하지 안혹 순수 함수를 이용한 방법
+// helper함수를 이용하지 않고 순수 함수를 이용한 방법
 function collectOddValues(arr) {
   let newArr = [];
 
@@ -601,7 +601,21 @@ function factorial(num) {
   return answer;
 }
 
-
+// helper 함수를 이용하여 배열 안의 모든 수를 곱하는 결과
+// productOfArray([1,2,3]) // 6
+// productOfArray([1,2,3,10]) // 60
+function productOfArray(arr) {
+  let answer = 1;
+  function multi(nums) {
+    if (nums.length === 0) {
+      return;
+    }
+    answer = answer * nums[0];
+    multi(nums.slice(1));
+  }
+  multi(arr);
+  return answer;
+}
 
 
 init();
