@@ -547,8 +547,22 @@ function collectionOdds(nums) {
   helper(nums);
 
   return result;
+}
 
+// helper함수를 이용하지 안혹 순수 함수를 이용한 방법
+function collectOddValues(arr) {
+  let newArr = [];
 
+  if (arr.length === 0) {
+    return newArr;
+  }
+
+  if (arr[0] % 2 !== 0) {
+    newArr.push(arr[0]);
+  }
+
+  newArr = newArr.concat(collectOddValues(arr.slice(1)));
+  return newArr;
 }
 
 
