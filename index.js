@@ -617,5 +617,24 @@ function productOfArray(arr) {
   return answer;
 }
 
+// helper 함수를 이용하여 재귀 구현
+// 숫자를 입력받고 해당 숫자부터 0까지의 합
+// SAMPLE INPUT/OUTPUT
+// recursiveRange(6) // 21
+// recursiveRange(10) // 55
+function recursiveRange(num){
+  let answer = 0;
+  function helper($num) {
+    if ($num === 0) return;
+    answer += $num;
+    $num--;
+    helper($num);
+  }
+  helper(num);
+  return answer;
+}
+
+
+
 
 init();
