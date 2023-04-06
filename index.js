@@ -634,7 +634,22 @@ function recursiveRange(num){
   return answer;
 }
 
-
+// helper 함수 사용하여 반복문 없이 재귀를 이용하여 피보나치 구현
+// fib(4) // 3
+// fib(10) // 55
+// fib(28) // 317811
+// fib(35) // 9227465
+function fib(num) {
+  // add whatever parameters you deem necessary - good luck!
+  let answer = 1;
+  function helper($num) {
+    if ($num === 1) return 1;
+    if ($num === 2) return 1;
+    return helper($num - 1) + helper($num - 2)
+  }
+  answer = helper(num);
+  return answer;
+}
 
 
 init();
