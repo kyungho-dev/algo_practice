@@ -675,5 +675,35 @@ function reverse(str){
 // reverse('awesome') // 'emosewa'
 // reverse('rithmschool') // 'loohcsmhtir'
 
+// helper 함수를 이용하여 팰린드롬 (앞뒤 대칭인 단어) 구현
+// isPalindrome('awesome') // false
+// isPalindrome('foobar') // false
+// isPalindrome('tacocat') // true
+// isPalindrome('amanaplanacanalpanama') // true
+// isPalindrome('amanaplanacanalpandemonium') // false
+
+function isPalindrome(str){
+  // add whatever parameters you deem necessary - good luck!
+  let answer = false;
+
+  if (str.length % 2 === 0) return answer;
+
+  let left = 0;
+  let right = str.length - 1;
+
+  function helper($str) {
+    //   if (left === right) return true;
+    if ($str.charAt(left) === $str.charAt(right)) return true;
+    else return false;
+    $str = $str.substr(left + 1).substr(0, right)
+    helper($str);
+  }
+
+  answer = helper(str);
+
+  return answer;
+
+}
+
 
 init();
