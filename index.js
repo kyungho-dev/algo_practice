@@ -651,5 +651,29 @@ function fib(num) {
   return answer;
 }
 
+// helper 함수 이용하여 문자열 reverse 함수 구현하기
+function reverse(str){
+  // add whatever parameters you deem necessary - good luck!
+  let answer = '';
+  let start = 0;
+  function helper($str) {
+    let end = $str.length - 1;
+    let temp = '';
+
+    if (end === 0) return str.charAt(0);
+    temp = $str.substr(end, 1);
+    $str = $str.substr(0, end);
+    return temp + helper($str);
+
+  }
+  answer = helper(str);
+
+  return answer;
+
+}
+
+// reverse('awesome') // 'emosewa'
+// reverse('rithmschool') // 'loohcsmhtir'
+
 
 init();
