@@ -723,8 +723,20 @@ function someRecursive(arr, func){
   if (arr.length === 0) return false;
   if (func(arr[0])) return true;
   return someRecursive(arr.slice(1), func);
-
-
 }
+
+// 배열 안의 배열이 있는 경우 1차원 배열로 만들기, 강사 코드
+function flatten(oldArr){
+  var newArr = []
+  for(var i = 0; i < oldArr.length; i++){
+    if(Array.isArray(oldArr[i])){
+      newArr = newArr.concat(flatten(oldArr[i]))
+    } else {
+      newArr.push(oldArr[i])
+    }
+  }
+  return newArr;
+}
+
 
 init();
