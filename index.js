@@ -837,8 +837,51 @@ function capitalizeWords(obj) {
 
   // recursion(obj);
   return tempArr;
+}
 
+/*
+let obj = {
+    num: 1,
+    test: [],
+    data: {
+        val: 4,
+        info: {
+            isRight: true,
+            random: 66
+        }
+    }
+}
+/*
 
+stringifyNumbers(obj)
+
+/*
+{
+    num: "1",
+    test: [],
+    data: {
+        val: "4",
+        info: {
+            isRight: true,
+            random: "66"
+        }
+    }
+}
+*/
+function stringifyNumbers(obj) {
+  let answer = {}
+  for (let key in obj) {
+    if (typeof obj[key] === 'number') {
+      answer[key] = obj[key].toString();
+
+    }
+    else if (typeof obj[key] === 'object' && !Array.isArray(obj[key])) answer[key] = stringifyNumbers(obj[key]);
+    else {
+      answer[key] = obj[key];
+    }
+  }
+
+  return answer;
 }
 
 
