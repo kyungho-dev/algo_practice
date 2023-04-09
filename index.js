@@ -822,5 +822,24 @@ var obj2 = {
 nestedEvenSum(obj1); // 6
 nestedEvenSum(obj2); // 10
 
+// 문자열이 담긴 객체를 받아
+// 모든 문자열을 대문자로 만든 후 배열에 담아 return
+function capitalizeWords(obj) {
+
+  let tempArr = []
+  // function recursion($obj) {
+
+  for (let str in obj) {
+    tempArr.push(obj[str].toUpperCase());
+  }
+
+  // }
+
+  // recursion(obj);
+  return tempArr;
+
+
+}
+
 
 init();
