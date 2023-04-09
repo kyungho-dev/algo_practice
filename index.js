@@ -884,5 +884,38 @@ function stringifyNumbers(obj) {
   return answer;
 }
 
+// const obj = {
+//     stuff: "foo",
+//     data: {
+//         val: {
+//             thing: {
+//                 info: "bar",
+//                 moreInfo: {
+//                     evenMoreInfo: {
+//                         weMadeIt: "baz"
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
+
+// collectStrings(obj) // ["foo", "bar", "baz"])
+
+function collectStrings(obj) {
+  let answer = [];
+  for (let key in obj) {
+    if (typeof obj[key] === 'string') {
+      answer.push(obj[key]);
+    } else if (typeof obj[key] === 'object') {
+      answer = answer.concat(collectStrings(obj[key]));
+    }
+  }
+
+
+  return answer;
+
+}
+
 
 init();
