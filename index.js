@@ -775,5 +775,52 @@ function capitalizeWords (array) {
 
 }
 
+// 다중 레벨의 객체에서 객체의 값이 짝수인 경우 모든 값을 더해 출력
+function nestedEvenSum (obj) {
+  // add whatever parameters you deem necessary - good luck!
+  let answer = 0;
+
+  function helper($obj) {
+
+    for (let val in $obj) {
+      if (typeof $obj[val] === 'object') {
+        helper($obj[val]);
+      } else if (typeof $obj[val] === 'number') {
+        if ($obj[val] % 2 === 0) {
+          answer += $obj[val];
+        }
+      }
+    }
+
+  }
+  helper(obj);
+  return answer;
+
+}
+
+
+var obj1 = {
+  outer: 2,
+  obj: {
+    inner: 2,
+    otherObj: {
+      superInner: 2,
+      notANumber: true,
+      alsoNotANumber: "yup"
+    }
+  }
+}
+
+var obj2 = {
+  a: 2,
+  b: {b: 2, bb: {b: 3, bb: {b: 2}}},
+  c: {c: {c: 2}, cc: 'ball', ccc: 5},
+  d: 1,
+  e: {e: {e: 2}, ee: 'car'}
+};
+
+nestedEvenSum(obj1); // 6
+nestedEvenSum(obj2); // 10
+
 
 init();
