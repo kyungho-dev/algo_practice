@@ -738,6 +738,31 @@ function flatten(oldArr){
   return newArr;
 }
 
+// 문자열이 들어있는 함수에서 각 항목의 첫글자를 대문자로 바꾸는 함수
+function capitalizeFirst (arr) {
+  // add whatever parameters you deem necessary - good luck!
+
+  let tempArr = []
+
+  function helper($arr) {
+    if ($arr.length === 0) return;
+    console.log("$arr : " , $arr)
+    let str = ''
+
+    str = $arr[0].substr(0, 1).toUpperCase() + $arr[0].substr(1)
+    tempArr.push(str);
+    helper($arr.slice(1))
+
+  }
+  helper(arr);
+
+  console.log("temp arr : " , tempArr)
+
+  return tempArr;
+}
+
+// capitalizeFirst(['car','taco','banana']); // ['Car','Taco','Banana']
+
 
 // 대문자로 만드는 함수
 function capitalizeWords (array) {
