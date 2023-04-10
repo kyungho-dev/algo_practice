@@ -18,3 +18,15 @@ function linearSearch(arr, num){
 
   return answer;
 }
+
+
+// 강사 코드
+function linearSearchSol(arr, val) {
+
+  for (let i = 0 ; i < arr.length ; i++) {
+    if (arr[i] === val) {
+      return i;
+    }
+  }
+  return -1;
+}
