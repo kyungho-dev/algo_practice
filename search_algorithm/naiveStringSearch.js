@@ -13,14 +13,16 @@ function findString(bigger , keyword) {
 
   let cnt = 0;
 
-  for (let char of bigger) {
+  for (let i = 0 ; i < bigger.length ; i++) {
 
-    for (let i = 0 ; i < keyword.length ; i++) {
+    for (let j = 0 ; j < keyword.length ; j++) {
 
-      if (char !== keyword[i]) break
-
+      if (keyword[j] === bigger[i + j]) {
+        if (j === keyword.length - 1) cnt++;
+      } else {
+        break;
+      }
     }
-
   }
-
+  return cnt;
 }
