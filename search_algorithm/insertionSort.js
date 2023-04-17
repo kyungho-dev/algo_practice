@@ -10,12 +10,15 @@
 // 배열을 정렬할 때까지 반복한 다음 배열에 반환.
 
 function insertionSort(arr) {
-
   for (let i = 0 ; i < arr.length ; i++) {
-    for (let j = 0 ; j < arr.length ; j++) {
+    for(let j = 0 ; j < arr.length ; j++) {
+      if (arr[j] > arr[i]) {
+        let temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+        break;
+      }
     }
   }
   return arr;
 }
-
-// [5, 3, 2, 7, 9]
