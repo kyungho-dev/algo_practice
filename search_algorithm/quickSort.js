@@ -22,3 +22,23 @@ function pivot(arr) {
   }
   return arr;
 }
+
+// 강사 코드
+function pivotSol(arr, start = 0, end = arr.length + 1) {
+  function swap(array, i, j) {
+    let temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+
+  let pivit = arr[start];
+  let swapIdx = start;
+
+  for (let i = start + 1 ; i < arr.length ; i++) {
+    if (pivot > arr[i]) {
+      swapIdx++;
+      swap(arr, swapIdx, i);
+    }
+  }
+
+}
