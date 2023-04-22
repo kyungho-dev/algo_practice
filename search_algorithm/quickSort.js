@@ -31,7 +31,7 @@ function pivotSol(arr, start = 0, end = arr.length + 1) {
     array[j] = temp;
   }
 
-  let pivit = arr[start];
+  let pivot = arr[start];
   let swapIdx = start;
 
   for (let i = start + 1 ; i < arr.length ; i++) {
@@ -40,5 +40,15 @@ function pivotSol(arr, start = 0, end = arr.length + 1) {
       swap(arr, swapIdx, i);
     }
   }
+}
 
+function quickSortSol(arr, left = 0 , right = arr.length - 1) {
+  if (left < right) {
+    let pivotIndex = pivotSol(arr, left, right); // 3
+    // left
+    quickSortSol(arr, left, pivotIndex - 1);
+    // right
+    quickSortSol(arr, pivotIndex + 1, right);
+  }
+  return arr;
 }
