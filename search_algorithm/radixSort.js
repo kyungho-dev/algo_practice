@@ -52,3 +52,20 @@ function radixSort(arr) {
   }
   return sortedArr;
 }
+
+// 기수 정렬 강사 코드
+function radixSortSol(nums) {
+  let maxDigitCount = mostDigits(nums);
+
+  for (let k = 0 ; k < maxDigitCount ; k++) {
+    let digitBuckets = Array.from({length: 10}, () => []);
+    for (let i = 0 ; i < nums.length ; i++) {
+      // digitBuckets[getDigit(nums[i], k)].push(nums[i]);
+      let digit = getDigit(nums[i], k);
+      digitBuckets[digit].push(nums[i]);
+    }
+    nums = [].concat(...digitBuckets);
+  }
+
+
+}
