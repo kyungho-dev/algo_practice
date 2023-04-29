@@ -10,10 +10,44 @@ class Node {
   }
 }
 
+class SinglyLinkedList {
+  constructor() {
+    this.head = null;
+    this.tail = null;
+    this.length = 0;
+  }
+  push(val) {
+    if (val.head === null) {
+      this.head = val;
+      this.tail = val;
+      this.length++;
+    } else {
+
+    }
+  }
+}
+
+/**
+ * push method 의 pseudocode
+ * 주어진 값을 받아들인 후 그것을 이용해 새로운 노드를 생성하는 것
+ * !! 만일 헤드가 없다면 리스트가 비어있다는 것을 의미한다.
+ * !! 비어있는 리스트에 처음에 80을 삽입했을 때 헤드와 테일이 모두 80을 가리키도록 했던 것이
+ * 바로 그 에이다.
+ * !! 만일 리스트가 비어있지 않다면, 마지막 노드의 "next"를 새롭게 생성된 노드를 가리키도록 하고,
+ * 테일이 새롭게 생성된 노드를 가리키도록 설정하면 된다.
+ * 그리고 length 를 1 증가
+ */
+
+
+
 // first 라는 변수가 Hi 라는 문자열을 인자로 받아들여서
 // new 키워드를 통해 생성된 Node 클래스와 같도록 설정
-let first = new Node("Hi");
-first.next = new Node("there");
-first.next.next = new Node("how");
-first.next.next.next = new Node("are");
-first.next.next.next.next = new Node("you");
+// let first = new Node("Hi");
+// first.next = new Node("there");
+// first.next.next = new Node("how");
+// first.next.next.next = new Node("are");
+// first.next.next.next.next = new Node("you");
+
+let list = new SinglyLinkedList()
+list.push("Hello");
+list.push("Goodbye!");
