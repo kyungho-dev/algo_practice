@@ -10,6 +10,17 @@ class Node {
   }
 }
 
+/**
+ * push method 의 pseudocode
+ * 주어진 값을 받아들인 후 그것을 이용해 새로운 노드를 생성하는 것
+ * !! 만일 헤드가 없다면 리스트가 비어있다는 것을 의미한다.
+ * !! 비어있는 리스트에 처음에 80을 삽입했을 때 헤드와 테일이 모두 80을 가리키도록 했던 것이
+ * 바로 그 에이다.
+ * !! 만일 리스트가 비어있지 않다면, 마지막 노드의 "next"를 새롭게 생성된 노드를 가리키도록 하고,
+ * 테일이 새롭게 생성된 노드를 가리키도록 설정하면 된다.
+ * 그리고 length 를 1 증가
+ */
+
 class SinglyLinkedList {
   constructor() {
     this.head = null;
@@ -31,26 +42,28 @@ class SinglyLinkedList {
 
   // pop 구현하기
   // list의 tail 찾기를 위한 traverse 구현
-  traverse() {
-    let current = this.head;
-    while (current) {
-      console.log(current.val);
-      current = current.next;
-    }
-  }
-
+  // traverse() {
+  //   let current = this.head;
+  //   while (current) {
+  //     console.log(current.val);
+  //     current = current.next;
+  //   }
+  // }
+  /**
+   * pop() 구현학 pseudocode
+   * pop() 함수는 어떤 변수나 데이터도 인자로 받을 필요 없다.
+   * 마지막 노드만 추출하는것
+   * 만일 리스트에 아무것도 없을 경우 undefined 반환
+   * 리스트가 비어있는지 확인하려면
+   *  1. head가 null 인지
+   *  2. 혹은, 길이가 0 인지 확인하면 된다.
+   * 그렇지 않다면 리스트를 돌면서 마지막 tail을 찾는다
+   * 그러나 마지막 바로 전 노드를 찾아야 하기 때문에 쉽지 않다!
+   * 따라서 tail에 이를때까지 계속 따라가고, 동시에 이전 노드가 어떤 것이었는지 항상 추적해야한다.
+   *
+   */
 }
 
-/**
- * push method 의 pseudocode
- * 주어진 값을 받아들인 후 그것을 이용해 새로운 노드를 생성하는 것
- * !! 만일 헤드가 없다면 리스트가 비어있다는 것을 의미한다.
- * !! 비어있는 리스트에 처음에 80을 삽입했을 때 헤드와 테일이 모두 80을 가리키도록 했던 것이
- * 바로 그 에이다.
- * !! 만일 리스트가 비어있지 않다면, 마지막 노드의 "next"를 새롭게 생성된 노드를 가리키도록 하고,
- * 테일이 새롭게 생성된 노드를 가리키도록 설정하면 된다.
- * 그리고 length 를 1 증가
- */
 
 
 
