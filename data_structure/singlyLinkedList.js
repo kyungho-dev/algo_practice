@@ -28,6 +28,17 @@ class SinglyLinkedList {
     this.length++;
     return this;
   }
+
+  // pop 구현하기
+  // list의 tail 찾기를 위한 traverse 구현
+  traverse() {
+    let current = this.head;
+    while (current) {
+      console.log(current.val);
+      current = current.next;
+    }
+  }
+
 }
 
 /**
