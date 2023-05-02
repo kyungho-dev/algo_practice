@@ -72,7 +72,28 @@ class SinglyLinkedList {
     //     current = current.next;
     //   }
     // }
-
+    // 강사 코드
+    if (!this.head) return undefined;
+    // 변수를 두개 만드는데 하나는 현재 노드인 current와
+    // 이전 노드인 previous , 아래 구현에서는 newTail 이겠지!
+    let current = this.head;
+    let newTail = current;
+    while (current.next) {
+      newTail = current;  // newTail은 늘 current의 하나 앞 노드를 가리키겠지
+      current = current.next;
+    }
+    // pop을 실행하면 current는 마지막 노드를 가리키고
+    // newTail은 그 앞 노드를 가리키고
+    this.tail = newTail;
+    // pop 실행 후 다음 노드는 비워주기로 했으므로 null 할당
+    this.tail.next = null;
+    this.length--;
+    if (this.length === 0) {
+      this.head = null;
+      this.tail = null;
+    }
+    // return값은 마지막 값 (위에 지워지겠지만! current에는 할당돼있으므로)
+    return current;
   }
 
 }
