@@ -62,6 +62,19 @@ class SinglyLinkedList {
    * 따라서 tail에 이를때까지 계속 따라가고, 동시에 이전 노드가 어떤 것이었는지 항상 추적해야한다.
    *
    */
+  pop() {
+    // 내 코드
+    // if (!this.head || this.length === 0) {
+    //   return undefined;
+    // } else {
+    //   let current = this.head;
+    //   while (current) {
+    //     current = current.next;
+    //   }
+    // }
+
+  }
+
 }
 
 
