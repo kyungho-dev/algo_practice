@@ -96,6 +96,32 @@ class SinglyLinkedList {
     return current;
   }
 
+  // shift 구현하기
+  /**
+   * shift 는 리스트의 맨 앞 노드를 제거한다.
+   * head를 제거하고, 두번째 노드를 head 에 할당하는 것
+   * 제거된 맨앞 head는 return
+   */
+  // shift의 pseudocode
+  /**
+   * 1. 노드가 없을 경우 undefined 반환.
+   * 2. 노드가 존재할 경우 현재의 head 속성을 변수에 저장하고,
+   * 3. 현재 head의 next 노드를 헤드가 가리키도록 업데이트하고,
+   * 4. list 길이 1 감소시키고,
+   * 5. 제거된 head 노드를 return
+   */
+  shift() {
+    if (!this.head) return undefined;
+
+    let head = this.head;
+    if (this.head.next) {
+      this.head = this.head.next;
+      this.length--;
+    }
+    return head;
+
+  }
+
 }
 
 
