@@ -133,6 +133,25 @@ class SinglyLinkedList {
     return currentHead;
   }
 
+  /**
+   * unshift() pseudocode
+   * 1. 값을 인자로 받는 함수를 생성, 해당 값을 새로운 노드로 추가
+   * 2. 헤드가 있는지를 체크하고, 없다면 head와 tail 모두 새로운 노드를 가리키도록 설정
+   * 3. 노드가 이미 있다면, 새롭게 생성된 노드의 next를 현재의 head값으로 설정
+   * 4. 새롭게 생성된 노드를 this.haed가 가리키도록 하고, 길이를 1 증가하고 해당 linkedList 를 return
+   */
+  myUnshift(val) {
+    if (!this.head) {
+      this.head = val;
+      this.tail = val;
+    }
+    let currentHead = this.head;
+    this.head = val;
+    this.head.next = currentHead;
+    this.length++;
+    return this;
+  }
+
 }
 
 
