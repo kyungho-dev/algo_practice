@@ -110,7 +110,7 @@ class SinglyLinkedList {
    * 4. list 길이 1 감소시키고,
    * 5. 제거된 head 노드를 return
    */
-  shift() {
+  shiftMyCode() {
     if (!this.head) return undefined;
 
     let head = this.head;
@@ -119,7 +119,18 @@ class SinglyLinkedList {
       this.length--;
     }
     return head;
+  }
 
+  // shift() 강사 코드
+  shift() {
+    if (!this.head) return undefined;
+    let currentHead = this.head;
+    this.head = currentHead.next;
+    this.length--;
+    if (this.length === 0) {
+      this.tail = null;
+    }
+    return currentHead;
   }
 
 }
