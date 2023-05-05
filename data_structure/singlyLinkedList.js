@@ -166,6 +166,27 @@ class SinglyLinkedList {
     return this;
   }
 
+  // get() 메서드 구현하기
+  /**
+   * get()메서드 pseudocode
+   * 1. 함수는 인자로 숫자를 받는다. 해당 숫자는 인덱스
+   * 2. 인덱스 범위에 따라 엣지 케이스가 있을 수 있다.
+   * -> 인덱스가 음수이거나 리스트의 길이보다 같거나 클 경우 동작할 수 없다.
+   * -> 이경우 null 을 return 하도록
+   * 3. 루프를 통해 인덱스가 지정하는 위치에 이를때까지 반복해서 이동한 다음 해당 인덱스 위치에 있는 노드를 반환
+   * -> 이동 횟수를 추적하는 "counter"변수를 사용해서 이전처럼 while 루프를 이용
+   */
+  get(num) {
+    if (num < 0 || num >= this.length) return null;
+    let counter = 0;
+    let current = this.head;
+    while (counter !== num) {
+      current = current.next;
+      counter++;
+    }
+    return current;
+  }
+
 }
 
 
