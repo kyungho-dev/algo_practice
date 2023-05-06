@@ -176,11 +176,23 @@ class SinglyLinkedList {
    * 3. 루프를 통해 인덱스가 지정하는 위치에 이를때까지 반복해서 이동한 다음 해당 인덱스 위치에 있는 노드를 반환
    * -> 이동 횟수를 추적하는 "counter"변수를 사용해서 이전처럼 while 루프를 이용
    */
-  get(num) {
+  getMyCode(num) {
     if (num < 0 || num >= this.length) return null;
     let counter = 0;
     let current = this.head;
     while (counter !== num) {
+      current = current.next;
+      counter++;
+    }
+    return current;
+  }
+
+  // 강사 코드
+  get(index) {
+    if (index < 0 || index >= this.length) return null;
+    let counter = 0;
+    let current = this.head;
+    while (counter !== index) {
       current = current.next;
       counter++;
     }
