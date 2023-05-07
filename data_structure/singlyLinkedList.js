@@ -243,7 +243,7 @@ class SinglyLinkedList {
    * 다 성공했다면 return true 아니면 false 리턴인데
    * 문제는 push나 unshift의 경우 true, false 리턴하도록 안돼있음...!
    */
-  insert(index, val) {
+  insertMyCode(index, val) {
     if (index < 0 || index > this.length) return false;
     if (index === 0) {
       this.unshift(val);
@@ -264,6 +264,20 @@ class SinglyLinkedList {
     return true;
   }
 
+  // 강사코드
+  insert(index, val) {
+    if (index < 0 || index > this.length) return false;
+    if (index === this.length) return !!this.push(val); // !!를 해줘서 true false 반환하도록 해준것.
+    if (index === 0) return !!this.unshift(val);  // boolean 을 반환하길 원할떄 !! 를 사용하면 유용하다!
+
+    let newNode = new Node(val);
+    let prev = this.get(index - 1);
+    let temp = prev.next;
+    prev.next = newNode;
+    newNode.next = temp;
+    this.length++;
+    return true;
+  }
 }
 
 
