@@ -207,7 +207,7 @@ class SinglyLinkedList {
    * 3. 해당 노드를 찾았다면 인자로 받은 값으로 해당 인덱스의 노드를 업데이트 하고
    * true를 return 해준다.
    */
-  set(index, val) {
+  setMyCode(index, val) {
     let prevNode = this.get(index - 1);
     if (!prevNode) return false
     let tempNode = this.get(index);
@@ -216,6 +216,16 @@ class SinglyLinkedList {
     prevNode.next = newNode;
     newNode.next = tempNode;
     return true;
+  }
+
+  // 강사 코드
+  set(index, val) {
+    let foundNode = this.get(index);
+    if (foundNode) {
+      foundNode.val = val;
+      return true;
+    }
+    return false;
   }
 
 }
