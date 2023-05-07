@@ -229,6 +229,41 @@ class SinglyLinkedList {
     return false;
   }
 
+  // insert() 메서드 구현하기
+  /**
+   * insert() 메서드 pseudocode
+   * 1. 인덱스와 값을 인자로 받는 함수를 정의. 범위를 벗어날 경우 삽입이 가능하지 않기 떄문에,
+   *   만약 인덱스가 0 보다 작거나 혹은 리스트의 길이보다 클 경우, return false
+   *    -> 이때 길이보다 크거나 같을 경우가 아니라 길이보다 클 경우 인 이유는, 해당 길이와 같은 경우는
+   *    해당 리스트의 마지막 값으로 추가되면 되기 때문이다. (이때는 push() 메서드 호출하면 되겠네)
+   *    마찬가지로 인덱스가 0이면 새롭게 작성할게 아니고, unshift()를 실행하면 된다.
+   * 2. 만약 인덱스가 0도, 리스트의 길이 도 아니라면-
+   *   get()메서드로 index - 1 호출하여 이전 노드 확인
+   * 3. 길이 + 1
+   * 다 성공했다면 return true 아니면 false 리턴인데
+   * 문제는 push나 unshift의 경우 true, false 리턴하도록 안돼있음...!
+   */
+  insert(index, val) {
+    if (index < 0 || index > this.length) return false;
+    if (index === 0) {
+      this.unshift(val);
+      return true;
+    }
+    if (index === this.length) {
+      this.push(val);
+      return true;
+    }
+    let prevNode = this.get(index - 1);
+    if (!prevNode) return false
+    let tempNode = this.get(index);
+    if (!tempNode) return false;
+    let newNode = new Node(val);
+    prevNode.next = newNode;
+    newNode.next = tempNode;
+    this.length++;
+    return true;
+  }
+
 }
 
 
