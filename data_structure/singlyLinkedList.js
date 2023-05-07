@@ -199,6 +199,25 @@ class SinglyLinkedList {
     return current;
   }
 
+  // set() 메서드 구현하기
+  /**
+   * set()메서드 pseudocode
+   * 1. 업데이트 할 위치를 알려주는 인덱스와 업데이트할 값을 인자로 받는 함수 정의
+   * 2. 해당 인덱스를 못찾으면 return false
+   * 3. 해당 노드를 찾았다면 인자로 받은 값으로 해당 인덱스의 노드를 업데이트 하고
+   * true를 return 해준다.
+   */
+  set(index, val) {
+    let prevNode = this.get(index - 1);
+    if (!prevNode) return false
+    let tempNode = this.get(index);
+    if (!tempNode) return false;
+    let newNode = new Node(val);
+    prevNode.next = newNode;
+    newNode.next = tempNode;
+    return true;
+  }
+
 }
 
 
