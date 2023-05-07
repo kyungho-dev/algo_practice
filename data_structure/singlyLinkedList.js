@@ -215,6 +215,7 @@ class SinglyLinkedList {
     let newNode = new Node(val);
     prevNode.next = newNode;
     newNode.next = tempNode;
+    this.length++;
     return true;
   }
 
